@@ -12,6 +12,7 @@
 		DF7B21D522B59F6800BFE2B5 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		DF7B21D622B59F6800BFE2B5 /* hotpatch */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hotpatch; sourceTree = "<group>"; };
 		DF7B21D722B59F6800BFE2B5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DF7B21D822B5A3D000BFE2B5 /* SSDT-V330.aml */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SSDT-V330.aml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -23,6 +24,7 @@
 				DF7B21D622B59F6800BFE2B5 /* hotpatch */,
 				DF7B21D422B59F6800BFE2B5 /* kexts */,
 				DF7B21D722B59F6800BFE2B5 /* README.md */,
+				DF7B21D822B5A3D000BFE2B5 /* SSDT-V330.aml */,
 			);
 			sourceTree = "<group>";
 		};
