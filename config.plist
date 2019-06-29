@@ -268,8 +268,8 @@
 			</dict>
 			<key>PciRoot(0)/Pci(0x1f,3)</key>
 			<dict>
-				<key>#PinConfigurations</key>
-				<data></data>
+				<key>#Comment</key>
+				<string>Conexant CX20751/2 Audio Codec</string>
 				<key>layout-id</key>
 				<integer>28</integer>
 			</dict>

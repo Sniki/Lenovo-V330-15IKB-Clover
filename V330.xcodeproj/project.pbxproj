@@ -7,24 +7,26 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		DF10CD7422C828AC00D21276 /* kexts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = kexts; sourceTree = "<group>"; };
+		DF10CD7522C828C100D21276 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
+		DF10CD7622C8293900D21276 /* SSDT-V330.aml */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SSDT-V330.aml"; sourceTree = "<group>"; };
 		DF7B21D322B59F6800BFE2B5 /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
-		DF7B21D422B59F6800BFE2B5 /* kexts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = kexts; sourceTree = "<group>"; };
 		DF7B21D522B59F6800BFE2B5 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		DF7B21D622B59F6800BFE2B5 /* hotpatch */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hotpatch; sourceTree = "<group>"; };
 		DF7B21D722B59F6800BFE2B5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		DF7B21D822B5A3D000BFE2B5 /* SSDT-V330.aml */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SSDT-V330.aml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		DF7B21CC22B59F1C00BFE2B5 = {
 			isa = PBXGroup;
 			children = (
+				DF10CD7522C828C100D21276 /* Themes */,
+				DF10CD7422C828AC00D21276 /* kexts */,
 				DF7B21D522B59F6800BFE2B5 /* Audio */,
-				DF7B21D322B59F6800BFE2B5 /* config.plist */,
 				DF7B21D622B59F6800BFE2B5 /* hotpatch */,
-				DF7B21D422B59F6800BFE2B5 /* kexts */,
 				DF7B21D722B59F6800BFE2B5 /* README.md */,
-				DF7B21D822B5A3D000BFE2B5 /* SSDT-V330.aml */,
+				DF7B21D322B59F6800BFE2B5 /* config.plist */,
+				DF10CD7622C8293900D21276 /* SSDT-V330.aml */,
 			);
 			sourceTree = "<group>";
 		};

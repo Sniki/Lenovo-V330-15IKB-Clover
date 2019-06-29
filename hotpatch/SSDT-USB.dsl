@@ -94,7 +94,7 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_USB", 0)
             If (!Arg2) { Return (Buffer() { 0x03 } ) }
             Return (Package()
             {
-                // these values from MacBookPro14,3
+                // these values from MacBookPro14,1
                 "kUSBSleepPortCurrentLimit", 3000,
                 "kUSBWakePortCurrentLimit", 3000,
             })

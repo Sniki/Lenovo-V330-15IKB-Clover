@@ -17,15 +17,15 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_KBD", 0)
         {
             Notify (KBD0, 0x0405)
         }
-        Method (_Q3D, 0, NotSerialized) // Mic Mute (F4) - "Siri Shortcut"
+        Method (_Q3D, 0, NotSerialized) // (F4) Mic Mute - Siri
         {
             Notify (KBD0, 0x033E)
         }
-        Method (_Q28, 0, NotSerialized) // Airplane Mode (F17) "Notification Center"
+        Method (_Q28, 0, NotSerialized) // (F17) Airplane Mode - Do not Disturb
         {
             Notify (KBD0, 0x0368)
         }
-        Method (_Q2E, 0, NotSerialized) // Lock (F18) "System Preferences"
+        Method (_Q2E, 0, NotSerialized) // (F18) Lock - System Preferences...
         {
             Notify (KBD0, 0x036A)
         }
@@ -61,14 +61,14 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_KBD", 0)
                 "Custom ADB Map", Package()
                 {
                     Package(){},
-                    "e06a=4f", // F18 (Lock) - System Preferences
+                    "e06a=4f", // (F18) Lock - System Preferences...
                     "e06b=70", // Video Mirror
                 },
                 "Custom PS2 Map", 
                 Package ()
                 {
                     Package (){}, 
-                    "e037=64" // PrtSC (F13) - Save selected area as screenshot
+                    "e037=64" // (F13) PrtSc - Save selected area as screenshot
                 }
             }
         })
