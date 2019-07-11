@@ -14,16 +14,20 @@
 			<dict>
 				<key>Comment-IRQ Fix</key>
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
+				<key>AddMCHC</key>
+				<true/>
+				<key>AddPNLF</key>
+				<true/>
 				<key>FixHPET</key>
-				<true/>
+				<false/>
 				<key>FixIPIC</key>
-				<true/>
+				<false/>
 				<key>FixRTC</key>
-				<true/>
+				<false/>
 				<key>FixTMR</key>
-				<true/>
+				<false/>
 				<key>FixMutex</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>Patches</key>
 			<array>
@@ -96,16 +100,6 @@
 					<data>R1BSVwI=</data>
 					<key>Replace</key>
 					<data>WFBSVwI=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Method(_PTS,1,N) to ZPTS, pair with SSDT-PTSWAK.aml</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X1BUUwE=</data>
-					<key>Replace</key>
-					<data>WlBUUwE=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -205,6 +199,12 @@
 				<key>TableId</key>
 				<string>xh_rvp10</string>
 			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>xh_rvp07</string>
+			</dict>
 		</array>
 		<key>FixHeaders</key>
 		<true/>
@@ -283,6 +283,10 @@
 			<key>Inject</key>
 			<true/>
 		</dict>
+		<key>SetIntelBacklight</key>
+		<true/>
+		<key>SetIntelMaxBacklight</key>
+		<true/>
 		<key>UseIntelHDMI</key>
 		<false/>
 	</dict>

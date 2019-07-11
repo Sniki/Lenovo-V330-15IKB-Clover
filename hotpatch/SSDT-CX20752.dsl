@@ -1,4 +1,4 @@
-// Lenovo V330-15IKB Custom Configuration for CX20751/2 Audio Codec.
+// Lenovo V330-15IKB Custom Audio Configuration for CX20751/2 Audio Codec.
 
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 1, "V330", "_CX20752", 0)

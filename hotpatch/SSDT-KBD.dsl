@@ -9,11 +9,11 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_KBD", 0)
 
     Scope (_SB.PCI0.LPCB.EC0)
     {
-        Method (_Q1C, 0, NotSerialized) // Brightness Up
+        Method (_Q1C, 0, NotSerialized) // (F15) Brightness Up
         {
             Notify (KBD0, 0x0406)
         }
-        Method (_Q1D, 0, NotSerialized) // Brightness Down
+        Method (_Q1D, 0, NotSerialized) // (F14) Brightness Down
         {
             Notify (KBD0, 0x0405)
         }
@@ -40,7 +40,7 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_KBD", 0)
             {
                 "Breakless PS2", Package()
                 {
-                    Package(){}, //indicating array
+                    Package(){},
                     "e06a", // Fn+F9
                     "e06b", // Fn+F10
                     "e02e", // Volume Down
