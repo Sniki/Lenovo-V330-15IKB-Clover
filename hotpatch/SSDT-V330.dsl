@@ -7,6 +7,7 @@ DefinitionBlock("", "SSDT", 2, "V330", "_V330", 0)
     #include "SSDT-EC.dsl"
     #include "SSDT-USBX.dsl"
     #include "SSDT-USB.dsl"
+    #include "SSDT-PTS.dsl"
     #include "SSDT-KBD.dsl"
     #include "SSDT-I2C.dsl"
     #include "SSDT-DDGPU.dsl"

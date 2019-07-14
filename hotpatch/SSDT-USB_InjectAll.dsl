@@ -1,15 +1,10 @@
 // Note: this is the old Method used with Rehabman USBInjectall.kext
-// USB Port Injector for Lenovo V330-15IKB.
-// Injects Fake EC Device.
-// Injects USBX Device with USB Power Properties.
-// Disables auto restart after shutdown when USB device Plugged In.
+// USB Ports Injector for Lenovo V330-15IKB.
 
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "V330", "_USB", 0)
 {
 #endif
-    External (_SB_.PCI0.XHC_.PMEE, FieldUnitObj)
-    External (ZPTS, MethodObj)
     
     Device(UIAC)
     {
@@ -80,35 +75,6 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_USB", 0)
                 },
             },
         })
-    }
-    // Inject Fake EC device
-    Device(_SB.EC)
-    {
-        Name(_HID, "EC000000")
-    }
-    // USB Power Properties
-    Device(_SB.USBX)
-    {
-        Name(_ADR, 0)
-        Method (_DSM, 4)
-        {
-            If (!Arg2) { Return (Buffer() { 0x03 } ) }
-            Return (Package()
-            {
-                // these values from MacBookPro14,1
-                "kUSBSleepPortCurrentLimit", 3000,
-                "kUSBWakePortCurrentLimit", 3000,
-            })
-        }
-    }
-    // Auto Start after Shutdown fix when USB device Plugged In.       
-    Method(_PTS, 1)
-    {
-        ZPTS(Arg0)
-        If (5 == Arg0)
-        {
-            \_SB.PCI0.XHC.PMEE = 0
-        }
     }
 #ifndef NO_DEFINITIONBLOCK
 }

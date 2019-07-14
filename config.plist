@@ -103,6 +103,16 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>change Method(_PTS,1,N) to ZPTS, pair with SSDT-PTSWAK.aml</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1BUUwE=</data>
+					<key>Replace</key>
+					<data>WlBUUwE=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change Method(_Q1C,0,N) to XQ1C</string>
 					<key>Disabled</key>
 					<false/>
