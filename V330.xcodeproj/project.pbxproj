@@ -12,17 +12,17 @@
 		DF7B21D522B59F6800BFE2B5 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		DF7B21D622B59F6800BFE2B5 /* hotpatch */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hotpatch; sourceTree = "<group>"; };
 		DF7B21D722B59F6800BFE2B5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		DFEE56B422DB5162006FB3AA /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Themes; path = ../../../../Users/besnikrrustemi/Desktop/Themes; sourceTree = "<group>"; };
 		DFEE56B522DB51DA006FB3AA /* SSDT-V330.aml */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SSDT-V330.aml"; sourceTree = "<group>"; };
 		DFEE56B622DB520C006FB3AA /* SystemLogo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SystemLogo; sourceTree = "<group>"; };
+		DFEE56B822DB54F3006FB3AA /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		DF7B21CC22B59F1C00BFE2B5 = {
 			isa = PBXGroup;
 			children = (
+				DFEE56B822DB54F3006FB3AA /* Themes */,
 				DFEE56B622DB520C006FB3AA /* SystemLogo */,
-				DFEE56B422DB5162006FB3AA /* Themes */,
 				DF10CD7422C828AC00D21276 /* kexts */,
 				DF7B21D522B59F6800BFE2B5 /* Audio */,
 				DF7B21D622B59F6800BFE2B5 /* hotpatch */,
