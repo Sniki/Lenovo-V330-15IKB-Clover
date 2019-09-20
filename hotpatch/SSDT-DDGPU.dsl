@@ -20,4 +20,3 @@ DefinitionBlock("", "SSDT", 2, "V330", "_DDGPU", 0)
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif
-//EOF

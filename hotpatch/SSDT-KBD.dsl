@@ -6,6 +6,7 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_KBD", 0)
 #endif
     External (_SB.PCI0.LPCB.EC0, DeviceObj)
     External (_SB.PCI0.LPCB.KBD0, DeviceObj)
+    External (SDM0, IntObj)
 
     Scope (_SB.PCI0.LPCB.EC0)
     {
@@ -35,6 +36,18 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_KBD", 0)
     {
         Name (RMCF, Package ()
         {
+            "Synaptics TouchPad", Package()
+            {
+                "DisableDevice", ">y",
+            },
+            "ALPS GlidePoint", Package()
+            {
+                "DisableDevice", ">y",
+            },
+            "Sentelic FSP", Package()
+            {
+                "DisableDevice", ">y",
+            },
             "Keyboard", 
             Package ()
             {
@@ -76,4 +89,3 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_KBD", 0)
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif
-//EOF

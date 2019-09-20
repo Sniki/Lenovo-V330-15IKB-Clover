@@ -20,4 +20,3 @@ DefinitionBlock("", "SSDT", 2, "V330", "_GPRW", 0)
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif
-//EOF

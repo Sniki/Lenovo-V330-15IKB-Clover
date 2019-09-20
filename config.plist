@@ -8,26 +8,12 @@
 		<true/>
 		<key>DSDT</key>
 		<dict>
-			<key>DropOEM_DSM</key>
-			<false/>
 			<key>Fixes</key>
 			<dict>
-				<key>Comment-IRQ Fix</key>
-				<string>The following fixes may be needed for onboard audio/USB/etc</string>
 				<key>AddMCHC</key>
 				<true/>
 				<key>AddPNLF</key>
 				<true/>
-				<key>FixHPET</key>
-				<false/>
-				<key>FixIPIC</key>
-				<false/>
-				<key>FixRTC</key>
-				<false/>
-				<key>FixTMR</key>
-				<false/>
-				<key>FixMutex</key>
-				<false/>
 			</dict>
 			<key>Patches</key>
 			<array>
@@ -63,37 +49,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change HDAS to HDEF</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>SERBUw==</data>
-					<key>Replace</key>
-					<data>SERFRg==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HECI to IMEI</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>SEVDSQ==</data>
-					<key>Replace</key>
-					<data>SU1FSQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change GFX0 to IGPU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>R0ZYMA==</data>
-					<key>Replace</key>
-					<data>SUdQVQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml</string>
+					<string>change Method(GPRW,2,N) to XPRW</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -103,7 +59,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_PTS,1,N) to ZPTS, pair with SSDT-PTSWAK.aml</string>
+					<string>change Method(_PTS,1,N) to ZPTS</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -163,27 +119,53 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Rename TPD0._CRS to XCRS</string>
+					<string>change Notify (BAT0, 0x81 to BATC)</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
-					<data>X0NSUw==</data>
+					<data>hkJBVDAKgQ==</data>
 					<key>Replace</key>
-					<data>WENSUw==</data>
-					<key>TgtBridge</key>
-					<data>VFBEMA==</data>
+					<data>hkJBVEMKgQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Rename TPD0._DSM to XDSM</string>
+					<string>change Notify (BAT1, 0x81 to BATC)</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
-					<data>X0RTTQ==</data>
+					<data>hkJBVDEKgQ==</data>
 					<key>Replace</key>
-					<data>WERTTQ==</data>
-					<key>TgtBridge</key>
-					<data>VFBEMA==</data>
+					<data>hkJBVEMKgQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Notify (BAT0, 0x80 to BATC)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>hkJBVDAKgA==</data>
+					<key>Replace</key>
+					<data>hkJBVEMKgA==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Notify (BAT1, 0x80 to BATC)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>hkJBVDEKgA==</data>
+					<key>Replace</key>
+					<data>hkJBVEMKgA==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Notify (BAT1, 0ne to BATC)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>hkJBVDEB</data>
+					<key>Replace</key>
+					<data>hkJBVEMB</data>
 				</dict>
 			</array>
 		</dict>
@@ -197,14 +179,6 @@
 		<array>
 			<dict>
 				<key>Signature</key>
-				<string>#MCFG</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
 				<string>SSDT</string>
 				<key>TableId</key>
 				<string>xh_rvp10</string>
@@ -216,27 +190,21 @@
 				<string>xh_rvp07</string>
 			</dict>
 		</array>
-		<key>FixHeaders</key>
-		<true/>
 		<key>SSDT</key>
 		<dict>
-			<key>DropOem</key>
-			<false/>
 			<key>Generate</key>
 			<dict>
 				<key>PluginType</key>
 				<true/>
 			</dict>
-			<key>NoOemTableId</key>
-			<false/>
 		</dict>
 	</dict>
 	<key>Boot</key>
 	<dict>
-		<key>#DefaultVolume</key>
+		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
-		<string>dart=0 -cdfon lilucpu=8</string>
+		<string>igfxfcmsfbs -cdfon</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
@@ -248,66 +216,44 @@
 	<string>This file is for Lenovo V330-15IKB (8th Gen, KabyLake-R)</string>
 	<key>Devices</key>
 	<dict>
-		<key>Audio</key>
-		<dict>
-			<key>Inject</key>
-			<integer>0</integer>
-		</dict>
 		<key>Properties</key>
 		<dict>
 			<key>PciRoot(0)/Pci(0x02,0)</key>
 			<dict>
 				<key>AAPL,ig-platform-id</key>
-				<data>AAAWGQ==</data>
+				<data>AADAhw==</data>
 				<key>device-id</key>
-				<data>FhkAAA==</data>
+				<data>FlkAAA==</data>
+				<key>framebuffer-fbmem</key>
+				<data>AACQAA==</data>
+				<key>framebuffer-stolenmem</key>
+				<data>AAAwAQ==</data>
+				<key>framebuffer-patch-enable</key>
+				<data>AQAAAA==</data>
 				<key>framebuffer-con1-enable</key>
-				<integer>1</integer>
+				<data>AQAAAA==</data>
 				<key>framebuffer-con1-alldata</key>
 				<data>AQUJAAAIAACHAQAA</data>
 				<key>framebuffer-con2-enable</key>
-				<integer>1</integer>
+				<data>AQAAAA==</data>
 				<key>framebuffer-con2-alldata</key>
 				<string>&lt;02040a00 00080000 87010000&gt;</string>
-				<key>framebuffer-fbmem</key>
-				<data>AACQAA==</data>
-				<key>framebuffer-patch-enable</key>
-				<integer>1</integer>
-				<key>framebuffer-stolenmem</key>
-				<data>AAAwAQ==</data>
 			</dict>
 			<key>PciRoot(0)/Pci(0x1f,3)</key>
 			<dict>
 				<key>#Comment</key>
 				<string>Conexant CX20751/2 Audio Codec</string>
 				<key>layout-id</key>
-				<integer>28</integer>
+				<data>HAAAAA==</data>
 			</dict>
-		</dict>
-		<key>USB</key>
-		<dict>
-			<key>AddClockID</key>
-			<true/>
-			<key>FixOwnership</key>
-			<true/>
-			<key>Inject</key>
-			<true/>
 		</dict>
 		<key>SetIntelBacklight</key>
 		<true/>
 		<key>SetIntelMaxBacklight</key>
 		<true/>
-		<key>UseIntelHDMI</key>
-		<false/>
 	</dict>
-	<key>DisableDrivers</key>
-	<array>
-		<string>VBoxHfs</string>
-	</array>
 	<key>GUI</key>
 	<dict>
-		<key>#ScreenResolution</key>
-		<string>1920x1080</string>
 		<key>Custom</key>
 		<dict>
 			<key>Entries</key>
@@ -347,34 +293,10 @@
 			<true/>
 		</dict>
 		<key>Theme</key>
-		<string>Embedded</string>
-		<key>EmbeddedThemeType</key>
-		<string>Dark</string>
-	</dict>
-	<key>Graphics</key>
-	<dict>
-		<key>Inject</key>
-		<dict>
-			<key>ATI</key>
-			<false/>
-			<key>Intel</key>
-			<false/>
-			<key>NVidia</key>
-			<false/>
-		</dict>
+		<string>ThinkPad</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
-		<key>AppleRTC</key>
-		<true/>
-		<key>DellSMBIOSPatch</key>
-		<false/>
-		<key>ForceKextsToLoad</key>
-		<array>
-			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
-		</array>
-		<key>KernelLapic</key>
-		<true/>
 		<key>KernelPm</key>
 		<true/>
 		<key>KernelToPatch</key>

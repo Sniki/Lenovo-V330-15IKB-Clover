@@ -1,55 +1,55 @@
-// VoodooI2C (TPD0) Patch for Lenovo V330-15IKB with ELAN I2C Precision TouchPad.
+// Lenovo V330-15IKB Elan Touchpad Fix
 
 #ifndef NO_DEFINITIONBLOCK
-DefinitionBlock("", "SSDT", 2, "V330", "_I2C", 0)
+DefinitionBlock ("", "SSDT", 2, "V330", "_I2C", 0)
 {
 #endif
-    External(_SB.PCI0.I2C0, DeviceObj)
-    External(_SB.PCI0.I2C0.TPD0, DeviceObj)
-    External(HIDG, FieldUnitObj)
-    External(HID2, FieldUnitObj)
-    External(HIDD, MethodObj)
-    External(TP7G, FieldUnitObj)
-    External(TP7D, MethodObj)
-    External(SBFB, FieldUnitObj)
-    Scope(_SB.PCI0.I2C0)
+    External (SDM0, IntObj)
+    External (_SB_.PCI0.I2C0, DeviceObj)
+    External (FMDI, IntObj)
+    External (FMHI, IntObj)
+    External (FMLI, IntObj)
+    External (SSDI, IntObj)
+    External (SSHI, IntObj)
+    External (SSLI, IntObj)
+    
+    Scope (_SB)
     {
-         Scope(TPD0)
-         {
-            // SBFX is modified SBFG
-            Name (SBFX, ResourceTemplate ()
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            If (_OSI ("Darwin"))
             {
-                GpioInt(Level, ActiveLow, ExclusiveAndWake, PullDefault, 0x0000,
-                    "\\_SB.PCI0.GPI0", 0x00, ResourceConsumer, ,
-                   )
-                   {   // Pin list
-                       0x001B
-                   }
+                SDM0 = Zero
+            }
+        }
+    }
+    
+    Scope (_SB.PCI0.I2C0)
+    {
+        Method (PKG3, 3, Serialized)
+        {
+            Name (PKG, Package (0x03)
+            {
+                Zero, 
+                Zero, 
+                Zero
             })
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
-            {
-                If (LEqual (Arg0, HIDG))
-                {
-                    Return (HIDD (Arg0, Arg1, Arg2, Arg3, HID2))
-                }
+            PKG [Zero] = Arg0
+            PKG [One] = Arg1
+            PKG [0x02] = Arg2
+            Return (PKG) /* \_SB_.PCI0.I2C0.PKG3.PKG_ */
+        }
 
-                If (LEqual (Arg0, TP7G))
-                {
-                    Return (TP7D (Arg0, Arg1, Arg2, Arg3, SBFB, SBFX))
-                }
+        Method (SSCN, 0, NotSerialized)
+        {
+            Return (PKG3 (SSHI, SSLI, SSDI))
+        }
 
-                Return (Buffer (One)
-                {
-                     0x00                                          
-                })
-            }
-            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-            {
-                Return (ConcatenateResTemplate (SBFB, SBFX))
-            }
+        Method (FMCN, 0, NotSerialized)
+        {
+            Return (PKG3 (FMHI, FMLI, FMDI))
         }
     }
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif
-//EOF
