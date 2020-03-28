@@ -1,24 +1,45 @@
 // Lenovo V330-15IKB Dual Battery Support SSDT with Hotswap capability
-// Note: you must enable config.plist /ACPI/DSDT/Patches related to BAT0 & BAT1 to have working dual battery
+// Note: you must enable config.plist /ACPI/DSDT/Patches:
+// Q40 to XQ40, Q41 to XQ41, Q42 to XQ42, Q43 to XQ43
+// Q48 to XQ48, Q49 to XQ49, Q4C to XQ4C, ECWK to XCWK
 
-#ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "V330", "_BATC", 0)
 {
-#endif
-    External(_SB.PCI0.LPCB.EC0, DeviceObj)
+    External (_SB.PCI0.LPCB.EC0, DeviceObj)
     Scope(_SB.PCI0.LPCB.EC0)
     {
-        External(BAT0, DeviceObj)
-        External(BAT0._HID, IntObj)
-        External(BAT0._STA, MethodObj)
-        External(BAT0._BIF, MethodObj)
-        External(BAT0._BST, MethodObj)
-        External(BAT1, DeviceObj)
-        External(BAT1._HID, IntObj)
-        External(BAT1._STA, MethodObj)
-        External(BAT1._BIF, MethodObj)
-        External(BAT1._BST, MethodObj)
-        
+        External (BAT0, DeviceObj)
+        External (BAT0._HID, IntObj)
+        External (BAT0._STA, MethodObj)
+        External (BAT0._BIF, MethodObj)
+        External (BAT0._BST, MethodObj)
+        External (BAT1, DeviceObj)
+        External (BAT1._HID, IntObj)
+        External (BAT1._STA, MethodObj)
+        External (BAT1._BIF, MethodObj)
+        External (BAT1._BST, MethodObj)
+        //
+        External (P80H, FieldUnitObj)
+        External (DCIO, FieldUnitObj)
+        External (B0ST, FieldUnitObj)
+        External (B1ST, FieldUnitObj)
+        External (SYSO, FieldUnitObj)
+        External (MUTE, FieldUnitObj)
+        External (TINI, MethodObj)
+        External (BCEN, FieldUnitObj)
+        External (BNEN, FieldUnitObj)
+        External (BCVE, FieldUnitObj)
+        External (BNVE, FieldUnitObj)
+        //
+        External (\_SB.PCI0.LPCB.EC0.XQ40, MethodObj)
+        External (\_SB.PCI0.LPCB.EC0.XQ41, MethodObj)
+        External (\_SB.PCI0.LPCB.EC0.XQ42, MethodObj)
+        External (\_SB.PCI0.LPCB.EC0.XQ43, MethodObj)
+        External (\_SB.PCI0.LPCB.EC0.XQ48, MethodObj)
+        External (\_SB.PCI0.LPCB.EC0.XQ49, MethodObj)
+        External (\_SB.PCI0.LPCB.EC0.XQ4C, MethodObj)
+        External (\_SB.PCI0.LPCB.EC0.XCWK, MethodObj)
+               
         Device(BATC)
         {
             Name(_HID, EisaId ("PNP0C0A"))
@@ -205,7 +226,131 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_BATC", 0)
                 Return(Local0)
             } // _BIF
         } // BATC
+        
+        Method (_Q40, 0, NotSerialized)
+        {
+            If (_OSI ("Darwin"))
+            {
+                P80H = 0x40
+                DCIO = One
+                Notify (BATC, 0x81)
+            }
+            Else
+            {
+                \_SB.PCI0.LPCB.EC0.XQ40 ()
+            }
+        }
+
+        Method (_Q41, 0, NotSerialized)
+        {
+            If (_OSI ("Darwin"))
+            {
+                P80H = 0x41
+                DCIO = One
+                Notify (BATC, 0x81)
+            }
+            Else
+            {
+                \_SB.PCI0.LPCB.EC0.XQ41 ()
+            }
+        }
+
+        Method (_Q48, 0, NotSerialized)
+        {
+            If (_OSI ("Darwin"))
+            {
+                P80H = 0x48
+                Notify (BATC, 0x81)
+            }
+            Else
+            {
+                \_SB.PCI0.LPCB.EC0.XQ48 ()
+            }
+        }
+
+        Method (_Q42, 0, NotSerialized)
+        {
+            If (_OSI ("Darwin"))
+            {
+                P80H = 0x42
+                Notify (BATC, One)
+            }
+            Else
+            {
+                \_SB.PCI0.LPCB.EC0.XQ42 ()
+            }
+        }
+
+        Method (_Q43, 0, NotSerialized)
+        {
+            If (_OSI ("Darwin"))
+            {
+                P80H = 0x43
+                Notify (BATC, One)
+            }
+            Else
+            {
+                \_SB.PCI0.LPCB.EC0.XQ43 ()
+            }
+        }
+
+        Method (_Q49, 0, NotSerialized)
+        {
+            If (_OSI ("Darwin"))
+            {
+                P80H = 0x49
+                Notify (BATC, One)
+            }
+            Else
+            {
+                \_SB.PCI0.LPCB.EC0.XQ49 ()
+            }
+        }
+
+        Method (_Q4C, 0, NotSerialized)
+        {
+            If (_OSI ("Darwin"))
+            {
+                P80H = 0x4C
+                If (B0ST)
+                {
+                    Notify (BATC, 0x80)
+                }
+
+                If (B1ST)
+                {
+                    Notify (BATC, 0x80)
+                }
+            }
+            Else
+            {
+                \_SB.PCI0.LPCB.EC0.XQ4C ()
+            }
+        }
+
+        Method (ECWK, 1, NotSerialized)
+        {
+            If (_OSI ("Darwin"))
+            {
+                SYSO = Arg0
+                MUTE = Zero
+                TINI ()
+                Notify (BATC, 0x81)
+                Notify (BATC, 0x81)
+                If (((Arg0 == 0x03) || (Arg0 == 0x04)))
+                {
+                    BNEN = BCEN
+                    BNVE = BCVE
+                }
+
+                If ((Arg0 == 0x03)){}
+                If ((Arg0 == 0x04)){}
+                If (((Arg0 == 0x04) || (Arg0 == 0x05))){}
+            }
+            Else
+            {
+                \_SB.PCI0.LPCB.EC0.XCWK ()
+            }
+        }
     }
-#ifndef NO_DEFINITIONBLOCK
 }
-#endif

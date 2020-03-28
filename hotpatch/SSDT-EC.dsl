@@ -1,9 +1,7 @@
 // Inject Fake EC Device
 
-#ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "V330", "_EC", 0)
 {
-#endif
     External (_SB_.PCI0.LPCB, DeviceObj)
 
     Scope (\_SB.PCI0.LPCB)
@@ -24,6 +22,4 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_EC", 0)
             }
         }
     }
-#ifndef NO_DEFINITIONBLOCK
 }
-#endif

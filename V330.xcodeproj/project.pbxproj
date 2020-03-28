@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		DF0F35EE242FFD2000A90C93 /* ACPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ACPI; sourceTree = "<group>"; };
 		DF10CD7422C828AC00D21276 /* kexts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = kexts; sourceTree = "<group>"; };
-		DF41545E23355A3700A58C84 /* SSDT-V330.aml */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SSDT-V330.aml"; sourceTree = "<group>"; };
 		DF7B21D322B59F6800BFE2B5 /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		DF7B21D522B59F6800BFE2B5 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		DF7B21D622B59F6800BFE2B5 /* hotpatch */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hotpatch; sourceTree = "<group>"; };
@@ -21,6 +21,7 @@
 		DF7B21CC22B59F1C00BFE2B5 = {
 			isa = PBXGroup;
 			children = (
+				DF0F35EE242FFD2000A90C93 /* ACPI */,
 				DFEE56B822DB54F3006FB3AA /* Themes */,
 				DFEE56B622DB520C006FB3AA /* SystemLogo */,
 				DF10CD7422C828AC00D21276 /* kexts */,
@@ -28,7 +29,6 @@
 				DF7B21D622B59F6800BFE2B5 /* hotpatch */,
 				DF7B21D722B59F6800BFE2B5 /* README.md */,
 				DF7B21D322B59F6800BFE2B5 /* config.plist */,
-				DF41545E23355A3700A58C84 /* SSDT-V330.aml */,
 			);
 			sourceTree = "<group>";
 		};

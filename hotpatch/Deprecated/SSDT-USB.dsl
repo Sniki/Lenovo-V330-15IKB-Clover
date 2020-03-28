@@ -1,10 +1,8 @@
 // USB Ports Injector for Lenovo V330-15IKB.
 // USB Power Properties from MacBookPro14,1
 
-#ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "V330", "_USB", 0)
 {
-#endif
     Device(UIAC)
     {
         Name(_HID, "UIA00000")
@@ -81,6 +79,4 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_USB", 0)
             },
         })
     }
-#ifndef NO_DEFINITIONBLOCK
 }
-#endif

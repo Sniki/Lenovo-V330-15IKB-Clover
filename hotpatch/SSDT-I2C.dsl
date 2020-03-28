@@ -1,21 +1,11 @@
 // Lenovo V330-15IKB Elan Touchpad Fix
 
-#ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "V330", "_I2C", 0)
 {
-#endif
-    External (SDM0, IntObj)
-    External (_SB_.PCI0.I2C0, DeviceObj)
-    External (FMDI, IntObj)
-    External (FMHI, IntObj)
-    External (FMLI, IntObj)
-    External (SSDI, IntObj)
-    External (SSHI, IntObj)
-    External (SSLI, IntObj)
-    
+    External (SDM0, IntObj)    
     Scope (_SB)
     {
-        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        Method (_INI, 0, NotSerialized)
         {
             If (_OSI ("Darwin"))
             {
@@ -23,33 +13,4 @@ DefinitionBlock ("", "SSDT", 2, "V330", "_I2C", 0)
             }
         }
     }
-    
-    Scope (_SB.PCI0.I2C0)
-    {
-        Method (PKG3, 3, Serialized)
-        {
-            Name (PKG, Package (0x03)
-            {
-                Zero, 
-                Zero, 
-                Zero
-            })
-            PKG [Zero] = Arg0
-            PKG [One] = Arg1
-            PKG [0x02] = Arg2
-            Return (PKG) /* \_SB_.PCI0.I2C0.PKG3.PKG_ */
-        }
-
-        Method (SSCN, 0, NotSerialized)
-        {
-            Return (PKG3 (SSHI, SSLI, SSDI))
-        }
-
-        Method (FMCN, 0, NotSerialized)
-        {
-            Return (PKG3 (FMHI, FMLI, FMDI))
-        }
-    }
-#ifndef NO_DEFINITIONBLOCK
 }
-#endif
