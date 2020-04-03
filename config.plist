@@ -99,6 +99,86 @@
 					<key>Replace</key>
 					<data>WFEyRQA=</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Change Method (_Q40,0,N) to XQ40</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1E0MAA=</data>
+					<key>Replace</key>
+					<data>WFE0MAA=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Change Method (_Q41,0,N) to XQ41</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1E0MQA=</data>
+					<key>Replace</key>
+					<data>WFE0MQA=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Change Method (_Q42,0,N) to XQ42</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1E0MgA=</data>
+					<key>Replace</key>
+					<data>WFE0MgA=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Change Method (_Q43,0,N) to XQ43</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1E0MwA=</data>
+					<key>Replace</key>
+					<data>WFE0MwA=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Change Method (_Q48,0,N) to XQ48</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1E0OAA=</data>
+					<key>Replace</key>
+					<data>WFE0OAA=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Change Method (_Q49,0,N) to XQ49</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1E0OQA=</data>
+					<key>Replace</key>
+					<data>WFE0OQA=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Change Method (_Q4C,0,N) to XQ4C</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1E0QwA=</data>
+					<key>Replace</key>
+					<data>WFE0QwA=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Change Method (ECWK,1,N) to XCWK</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>CEVDV0sB</data>
+					<key>Replace</key>
+					<data>WEVDV0sB</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DisabledAML</key>
@@ -133,10 +213,10 @@
 	</dict>
 	<key>Boot</key>
 	<dict>
-		<key>DefaultVolume</key>
-		<string>LastBootedVolume</string>
 		<key>Arguments</key>
 		<string></string>
+		<key>DefaultVolume</key>
+		<string>LastBootedVolume</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
@@ -158,26 +238,26 @@
 				<data>AADAhw==</data>
 				<key>device-id</key>
 				<data>FlkAAA==</data>
-				<key>framebuffer-fbmem</key>
-				<data>AACQAA==</data>
-				<key>framebuffer-stolenmem</key>
-				<data>AAAwAQ==</data>
-				<key>enable-hdmi20</key>
-				<data>AQAAAA==</data>
 				<key>disable-external-gpu</key>
+				<data>AQAAAA==</data>
+				<key>enable-hdmi20</key>
 				<data>AQAAAA==</data>
 				<key>enable-lspcon-support</key>
 				<data>AQAAAA==</data>
-				<key>framebuffer-patch-enable</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-con1-enable</key>
-				<data>AQAAAA==</data>
 				<key>framebuffer-con1-alldata</key>
 				<data>AQUJAAAIAACHAQAA</data>
-				<key>framebuffer-con2-enable</key>
+				<key>framebuffer-con1-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con2-alldata</key>
 				<data>AgQKAAAIAACHAQAA</data>
+				<key>framebuffer-con2-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-fbmem</key>
+				<data>AACQAA==</data>
+				<key>framebuffer-patch-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-stolenmem</key>
+				<data>AAAwAQ==</data>
 			</dict>
 			<key>PciRoot(0)/Pci(0x1f,3)</key>
 			<dict>
@@ -239,8 +319,6 @@
 	<dict>
 		<key>KernelPm</key>
 		<true/>
-		<key>PanicNoKextDump</key>
-		<true/>
 		<key>KernelToPatch</key>
 		<array>
 			<dict>
@@ -254,6 +332,8 @@
 				<data>ILniAAAAkJA=</data>
 			</dict>
 		</array>
+		<key>PanicNoKextDump</key>
+		<true/>
 	</dict>
 	<key>RtVariables</key>
 	<dict>
